@@ -12,13 +12,11 @@ import 'firebase/auth';
 import Button from 'material-ui/Button';
 import Input from 'material-ui/Input';
 import List, { ListItem, ListItemText } from 'material-ui/List';
-import Menu, { MenuItem } from 'material-ui/Menu';
 import React from 'react';
 import base from './rebase';
-import firebase from 'firebase/app';
-import { CircularProgress } from 'material-ui/Progress';
 
-import Header from './Header/';
+import Header from './Header';
+
 
 
 
@@ -56,19 +54,20 @@ export default class App extends React.Component {
       }
     });
 
-    // TODO this code is only used by the Header
-    base.initializedApp.auth().onAuthStateChanged(user => {
-      if(user) {
-        this.setState({ status: 'in', user: user });
-      } else {
-        this.setState({ status: 'out' });
-      }
-    });
+  //   // TODO this code is only used by the Header
+  //   base.initializedApp.auth().onAuthStateChanged(user => {
+  //     if(user) {
+  //       this.setState({ status: 'in', user: user });
+  //     } else {
+  //       this.setState({ status: 'out' });
+  //     }
+  //   });
   }
+  
   setSelectedChannel(channel) {
     this.setState({selected: channel});
-  }
-  // render() {
+  } 
+  render() {
   //   // TODO this code to generate the header should be moved a component.
   //   var userStatus = <CircularProgress/>; // For loading state
   //   if(this.state.status === 'in') {
